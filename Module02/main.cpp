@@ -1,5 +1,68 @@
 #include <iostream>
 #include <string>
+using namespace std;
+
+void addGame() {
+    cout << "Add Game selected." << endl;
+}
+
+void viewGames() {
+    cout << "View Games selected." << endl;
+}
+
+void searchGames() {
+    cout << "Search Games selected." << endl;
+}
+
+void updateGame() {
+    cout << "Update Game selected." << endl;
+}
+
+void deleteGame() {
+    cout << "Delete Game selected." << endl;
+}
+
+int main() {
+    int choice = 0;
+
+    while (choice != 6) {
+        cout << "\n=== VIDEO GAME LIBRARY ===" << endl;
+        cout << "1. Add Game" << endl;
+        cout << "2. View Games" << endl;
+        cout << "3. Search Games" << endl;
+        cout << "4. Update Game" << endl;
+        cout << "5. Delete Game" << endl;
+        cout << "6. Exit" << endl;
+        cout << "Choose an option: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                addGame();
+                break;
+            case 2:
+                viewGames();
+                break;
+            case 3:
+                searchGames();
+                break;
+            case 4:
+                updateGame();
+                break;
+            case 5:
+                deleteGame();
+                break;
+            case 6:
+                cout << "Goodbye!" << endl;
+                break;
+            default:
+                cout << "Invalid choice. Try again." << endl;
+        }
+    }
+
+    return 0;
+}#include <iostream>
+#include <string>
 #include <limits>
 using namespace std;
 
