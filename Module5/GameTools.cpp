@@ -1,24 +1,49 @@
+
 #include <iostream>
 #include "GameTools.h"
 using namespace std;
 
-void addGame()
+void addGame(vector<Game>& games, string title, double rating)
 {
-    cout << "Game added successfully!" << endl;
+    Game newGame;
+    newGame.title = title;
+    newGame.rating = rating;
+
+    games.push_back(newGame);
+
+    cout << title << " added successfully!" << endl;
 }
 
-void displayGames()
+void displayGames(const vector<Game>& games)
 {
-    cout << "=== GAME RECORDS ===" << endl;
-    cout << "Wii Sports - 2006" << endl;
-    cout << "Super Mario Bros. - 1985" << endl;
-    cout << "Mario Kart Wii - 2008" << endl;
+    cout << "\n=== GAME RECORDS ===" << endl;
+
+    if (games.empty()) {
+        cout << "No games available." << endl;
+        return;
+    }
+
+    for (int i = 0; i < games.size(); i++) {
+        cout << games[i].title
+             << " | Rating: " << games[i].rating << endl;
+    }
 }
 
-void calculateAverage()
+void calculateAverage(const vector<Game>& games)
 {
-    double scores[3] = { 8.5, 9.0, 9.5 };
-    double average = (scores[0] + scores[1] + scores[2]) / 3;
+    if (games.empty()) {
+        cout << "No ratings to calculate." << endl;
+        return;
+    }
 
-    cout << "Average game rating: " << average << endl;
+    double total = 0;
+
+    for (int i = 0; i < games.size(); i++) {
+        total += games[i].rating;
+    }
+
+    double average = total / games.size();
+
+    cout << "\nAverage game rating: "
+         << average << endl;
 }
